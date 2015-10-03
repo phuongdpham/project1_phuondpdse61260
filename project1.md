@@ -2,7 +2,7 @@
 
  I use color average to find the feature selection to convert an image into a vector.
  Which image I calculate in layer 3 spatial color average table and convert them to a vector has dim = 63
- '''{r}
+```{r}
 	colorAvgSpatialTable <- function(files, dpar=21*3)
 	{
 	  
@@ -16,24 +16,24 @@
 	  
 	  return(X);
 	}
-'''
+```
 	
  I create data set from matrix X
  
 ### Q2. Divide the images into k clusters using kmeans.
  I divide them to k = 8 clusters, and loop the kmeans method steps times to find the best solution.
  set.seed(1234)
-'''{r}
+```{r}
 	# calculate new centers and labels
 	for (i in 1:steps) {
 	  C <- averaging(D, L, k);
 	  L <- labelAll(D, C);
 	}
-'''
+```
  
 ### Q3. Rendering the result in HTML page
  I use R2HTML library to render output from R to HTML
-'''{r}
+```{r}
 	HTMLStart(outdir = "D:/2015Fall/AIL_Machine_Learning/project_1", filename = "kmeans_output", extension = "html",
           echo = FALSE, autobrowse = FALSE, HTMLframe = TRUE, withprompt = "HTML> ",
           CSSFile = "R2HTML.css", BackGroundColor = "FFFFFF", BackGroundImg = "",
@@ -61,4 +61,4 @@
 	}
 
 	HTMLStop()
-'''
+```
